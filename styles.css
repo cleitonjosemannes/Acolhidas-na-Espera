@@ -1,0 +1,532 @@
+/* ==========================================================================
+   RESET & VARIÁVEIS COMPILADAS (Modern CSS)
+   ========================================================================== */
+:root {
+    --bg-light: #FFF5F6;       /* Rosa bem claro/pastel para fundo */
+    --bg-white: #FFFFFF;
+    --primary-soft: #F4C2C2;   /* Rosa suave de suporte */
+    --accent-pink: #E11D74;    /* Rosa Pink / Magenta vibrante para destaques */
+    --accent-hover: #C01460;   /* Tom mais escuro para hover */
+    --text-dark: #3A2E31;      /* Cinza/Marrom escuro para leitura confortável */
+    --text-light: #705E62;     /* Texto secundário */
+    
+    --font-header: 'Playfair Display', Georgia, serif;
+    --font-body: 'Montserrat', Helvetica, Arial, sans-serif;
+    --transition-fast: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 0;
+}
+
+/* ==========================================================================
+   COMPONENTES / BOTÕES REUTILIZÁVEIS
+   ========================================================================== */
+.btn-cta {
+    background-color: var(--accent-pink);
+    color: var(--bg-white);
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(225, 29, 116, 0.2);
+}
+
+.btn-cta:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(225, 29, 116, 0.3);
+}
+
+.btn-secondary {
+    border: 2px solid var(--accent-pink);
+    color: var(--accent-pink);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition-fast);
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-pink);
+    color: var(--bg-white);
+}
+
+.section-title {
+    font-family: var(--font-header);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+}
+
+/* ==========================================================================
+   HEADER & NAVBAR
+   ========================================================================== */
+.main-header {
+    background-color: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    backdrop-filter: blur(5px);
+}
+
+.header-container {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-header);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.logo span {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-pink);
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 2rem;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+}
+
+.main-nav a:hover:not(.btn-cta) {
+    color: var(--accent-pink);
+}
+
+.btn-cta.small {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-dark);
+    border-radius: 3px;
+    transition: var(--transition-fast);
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero {
+    padding-top: 90px;
+    background: linear-gradient(180deg, var(--bg-white) 0%, var(--bg-light) 100%);
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-family: var(--font-header);
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.image-placeholder {
+    display: none;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(135deg, var(--primary-soft) 0%, var(--bg-white) 100%);
+    border-radius: 30%; /* Forma orgânica moderna */
+    box-shadow: 0 20px 40px rgba(225, 29, 116, 0.05);
+}
+
+.hero-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 50%; /* Forma orgânica moderna */
+    box-shadow: 0 20px 40px rgba(225, 29, 116, 0.05);
+    
+}
+
+.hero-illustration {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ==========================================================================
+   PILARES DE CONTEÚDO (GRID)
+   ========================================================================== */
+.pilares {
+    background-color: var(--bg-white);
+}
+
+.grid-pilares {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.pilar-card {
+    background-color: var(--bg-light);
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    transition: var(--transition-fast);
+    border: 1px solid rgba(244, 194, 194, 0.3);
+}
+
+.pilar-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(225, 29, 116, 0.08);
+    border-color: var(--primary-soft);
+}
+
+.pilar-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.pilar-card h3 {
+    font-family: var(--font-header);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.pilar-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   SOBRE / QUEM SOU
+   ========================================================================== */
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+/* Container que segura a imagem e cria o efeito da borda rosa atrás */
+.profile-container {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    border-radius: 24px;
+}
+
+.profile-placeholder {
+    display: none;
+    width: 100%;
+    height: 500px;
+    background-color: var(--primary-soft);
+    border-radius: 24px;
+    position: relative;
+}
+
+.profile-image {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 24px;    
+}
+
+/* A foto em si, clipada perfeitamente no formato */
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 24px;
+    position: relative;
+    z-index: 2; /* Fica acima da borda de destaque */
+}
+
+/* O efeito moderno da borda deslocada ao fundo */
+.profile-container::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--accent-pink);
+    border-radius: 24px;
+    z-index: 1; /* Fica atrás da foto */
+}
+
+.tag {
+    color: var(--accent-pink);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.about-content h2 {
+    font-family: var(--font-header);
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.about-content p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   SEÇÃO DEPOIMENTOS (PRINTS)
+   ========================================================================== */
+.depoimentos {
+    background-color: var(--bg-white);
+}
+
+.grid-depoimentos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    justify-content: center;
+}
+
+.depoimento-card {
+    background-color: var(--bg-light);
+    padding: 1rem;
+    border-radius: 20px;
+    border: 1px solid rgba(244, 194, 194, 0.4);
+    box-shadow: 0 10px 25px rgba(225, 29, 116, 0.03);
+    transition: var(--transition-fast);
+}
+
+.depoimento-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(225, 29, 116, 0.08);
+    border-color: var(--primary-soft);
+}
+
+.depoimento-print {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+}
+
+.depoimento-print img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Mantém a proporção inteira do print sem cortar */
+    display: block;
+}
+
+/* ==========================================================================
+   NEWSLETTER
+   ========================================================================== */
+.newsletter {
+    background-color: var(--accent-pink);
+    color: var(--bg-white);
+    text-align: center;
+}
+
+.newsletter-container {
+    max-width: 700px;
+}
+
+.newsletter h2 {
+    font-family: var(--font-header);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+    margin-top: 1rem;
+}
+
+.newsletter p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.btn-groups {
+    background-color: var(--bg-white);
+    color: var(--accent-pink);
+    padding: 20px;
+    border: none;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(225, 29, 116, 0.2);
+}
+
+.btn-groups:hover {
+    background-color: var(--accent-hover);
+    color: var(--bg-white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(225, 29, 116, 0.3);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.main-footer {
+    background-color: var(--text-dark);
+    color: var(--bg-light);
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-footer a {
+    color: var(--bg-light);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+
+
+
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE-FIRST BREAKPOINTS)
+   ========================================================================== */
+@media (max-width: 968px) {
+    .hero-container, .about-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+    }
+
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-actions { justify-content: center; }
+    .image-placeholder { height: 300px; }
+    .profile-placeholder { height: 350px; }
+    
+    .section-title { font-size: 2rem; }
+    .about-content h2 { font-size: 2rem; }
+
+    /* Menu Mobile */
+    .menu-toggle { display: flex; }
+    
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-white);
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        padding: 2rem 0;
+    }
+
+    .main-nav.active {
+        display: block;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+  .btn-groups {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+     
+    .footer-container {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
