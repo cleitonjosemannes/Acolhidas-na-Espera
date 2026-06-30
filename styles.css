@@ -401,11 +401,14 @@ body {
 /* ==========================================================================
    NEWSLETTER
    ========================================================================== */
-.newsletter {
+.newsletter{
     background-color: var(--accent-pink);
     color: var(--bg-white);
     text-align: center;
+
 }
+
+
 
 .newsletter-container {
     max-width: 700px;
@@ -444,6 +447,7 @@ body {
     transition: var(--transition-fast);
     display: inline-block;
     box-shadow: 0 4px 15px rgba(225, 29, 116, 0.2);
+
 }
 
 .btn-groups:hover {
@@ -529,4 +533,12 @@ body {
         gap: 1rem;
         text-align: center;
     }
+
+    .groups  {   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
+}
+
